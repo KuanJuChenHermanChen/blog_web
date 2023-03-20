@@ -16,3 +16,7 @@ def create_new_article(db: Session, request: ArticleBase):
     db.commit()
     db.refresh(new_article)
     return new_article
+
+
+def get_all_articles(db: Session):
+    return db.query(Article).all()

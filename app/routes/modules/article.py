@@ -8,9 +8,9 @@ from app.controllers import articles
 router = APIRouter()
 
 
-@router.get("/")
-def get_article():
-    return {"message": "Hello World"}
+@router.get("/all")
+def get_all_articles(db: Session = Depends(get_db)):
+    return articles.get_all_articles(db)
 
 
 @router.post("/")
